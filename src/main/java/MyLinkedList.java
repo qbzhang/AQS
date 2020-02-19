@@ -68,7 +68,6 @@ public class MyLinkedList<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-//        currentNode
         return (currentNode != null && currentNode.next != null) ? true : false;
     }
 
