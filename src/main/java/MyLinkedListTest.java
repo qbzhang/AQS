@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class MyLinkedListTest {
     public static void main(String[] args) {
         MyLinkedList<String> lists = new MyLinkedList<>();
@@ -10,11 +12,14 @@ public class MyLinkedListTest {
         lists.addLast("2");
         lists.addLast("3");
         lists.addLast("4");
-        System.out.println(lists.getSize());
-        /*while (lists.getSize()>0 && lists) {
-
-        }*/
-        System.out.println("首节点:" + lists.getFirst());
-        System.out.println("尾节点:" + lists.getLast());
+//        System.out.println(lists.getSize());
+        Iterator<String> it = lists.iterator();
+        for (; it.hasNext(); ) {
+            String tmp = it.next();
+            System.out.println(tmp);
+        }
+        System.out.println("************************");
+        for (String temp : lists)
+            System.out.println(temp);
     }
 }

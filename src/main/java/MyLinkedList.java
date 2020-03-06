@@ -1,10 +1,9 @@
 import java.util.Iterator;
 
-public class MyLinkedList<T> implements Iterator<T> {
+public class MyLinkedList<T> implements Iterable<T> {
     private Node<T> head = new Node<T>(null);
     private Node<T> tail = new Node<T>(null);
     private int size = 0;
-    private Node<T> currentNode = null;
 
     public MyLinkedList() {
         head.next = tail;
@@ -67,17 +66,23 @@ public class MyLinkedList<T> implements Iterator<T> {
     }
 
     @Override
-    public boolean hasNext() {
-        return (currentNode != null && currentNode.next != null) ? true : false;
+    public Iterator<T> iterator() {
+        return new MyIterator();
     }
 
-    @Override
-    public T next() {
-        if (currentNode == null)
-            currentNode = head.next;
-        else
+    class MyIterator implements Iterator<T> {
+        private Node<T> currentNode = head;
+
+        @Override
+        public boolean hasNext() {
+            return currentNode.next != tail;
+        }
+
+        @Override
+        public T next() {
             currentNode = currentNode.next;
-        return currentNode.getT();
+            return currentNode.getT();
+        }
     }
 
     class Node<T> {
