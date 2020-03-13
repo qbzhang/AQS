@@ -1,8 +1,10 @@
+package aqs;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 public class User {
     private int count;
-    //    private ParkLock lock = new ParkLock();
+    //    private aqs.ParkLock lock = new aqs.ParkLock();
 //    private Lock2 lock = new Lock2();
     private ReentrantLock lock = new ReentrantLock(true);
 

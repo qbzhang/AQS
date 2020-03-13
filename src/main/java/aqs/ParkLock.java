@@ -1,3 +1,5 @@
+package aqs;
+
 import sun.misc.Contended;
 
 import java.util.Queue;
@@ -5,6 +7,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.locks.LockSupport;
 
+//原型锁需改造
 public class ParkLock {
     @Contended
     private volatile int lockFlags = 0;
